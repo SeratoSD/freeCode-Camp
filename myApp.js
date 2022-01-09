@@ -35,9 +35,6 @@ const createAndSavePerson = async (done) => {
 
 const createManyPeople = async (arrayOfPeople, done) => {
   try {
-    arrayOfPeople = [{ name: 'Iniesta', age: 39, favoriteFoods: ['Mate', 'Pizza'] },
-    { name: 'Messi', age: 34, favoriteFoods: ['Paella', 'Pizza'] },
-    { name: 'Xavi', age: 36, favoriteFoods: ['Chorizo', 'Pizza'] }];
     const peopleCreated = await Person.create(arrayOfPeople);
     done(null, peopleCreated);
   } catch (error) {
