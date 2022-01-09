@@ -23,8 +23,14 @@ const PersonSchema = Schema({
 
 Person = model( 'Person', PersonSchema);
 
-const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+const createAndSavePerson = async (done) => {
+  try {
+    const person = new Person({name: 'Andres', age: 25, favoriteFoods:['Burguer','Pizza']});
+    await person.save();
+    done(null, person);
+  } catch (error) {
+    done(error);
+  }
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
