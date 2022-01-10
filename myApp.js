@@ -52,7 +52,12 @@ const findPeopleByName = async (personName, done) => {
 };
 
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+  try {
+    const people = await Person.findOne({favoriteFoods: food});
+    done(null, people);
+  } catch (error) {
+    done(error);
+  }
 };
 
 const findPersonById = (personId, done) => {
