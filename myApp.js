@@ -69,7 +69,7 @@ const findPersonById = async (personId, done) => {
   }
 };
 
-const findEditThenSave = (personId, done) => {
+const findEditThenSave = async (personId, done) => {
   const foodToAdd = "hamburger";
   try {
     const people = await Person.findById({_id: personId});
