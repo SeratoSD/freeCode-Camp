@@ -51,7 +51,7 @@ const findPeopleByName = async (personName, done) => {
   }
 };
 
-const findOneByFood = (food, done) => {
+const findOneByFood = async (food, done) => {
   try {
     const people = await Person.findOne({favoriteFoods: food});
     done(null, people);
